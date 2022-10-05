@@ -1,0 +1,166 @@
+Linux:
+======
+
+Platform: AWS Cloud instacnes
+Terminal: Mobaxterm
+==============================
+
+Introduction of Linux
+Architecture of Linux
+Differenes between windows and Linux
+Basic COMMANDS  --> touch , cat ,cp , mv, vi , linkks , rm , mkdir
+Advanced commands --> find , grep , sort , cut , sed , awk , tail , head , wc , scp , rsync , ssh-passwordless
+User/Group mgmt -->
+Package mgmt --> rpm , yum
+Process mgmt --> process(ps)
+Job mgmt --> at jobs and cron jobs
+Disk mgmt  --> 
+Basic Networking --> 
+
+================================Introduction of Linux
+
+Built up from Unix-Operating system : Sun solaris (Redhat Linux --> Oracle Redhat linux(Licensed))
+Introduce : Linux torvald
+Different kind of Linux falvours:  IBM-UX , HP-UX ==> PREMIUM  ==> yearly once the version has to be release
+                                   Centos , Ubuntu etc.,  ==> every 6 months once the version has to be released
+
+
+Architecture of Linux:
+=====================
+
+USERS : Users are like a input providers to the kernel
+kernel: can convert higher languages(English) to the lower anguage(Binary 0s and 1's)
+Hardware: CPU,MEM,DISK,ROM etc.,
+SHELL: Command interpreter (/bin and /sbin)
+
+Differenes between windows and Linux:
+-------------------------------------
+
+Security: it can provide more security than windows
+Performance: it 99.99999%
+
+Basic COMMANDS  --> touch ,cat ,ls , pwd , cd , date , cal ,cp , mv, vi , linkks , rm , mkdir
+==================
+to login a machine:
+
+1. gitbash
+2. mobaxterm
+3. aws console itself only
+
+
+mobaxterm:
+
+file:  touch , cat , vi , ls
+====
+
+touch : -  to create a an empty files/file
+
+syn: touch <filename>
+examples:
+
+[root@ip-172-31-20-188 ~]# touch sekhar
+[root@ip-172-31-20-188 ~]# touch httpd
+[root@ip-172-31-20-188 ~]# touch we are ty uiop
+
+ls: to list a files/directories
+==
+syn: ls <options> <file/dir name or without giving any name>
+
+        - l --> long listig info about a file/dire
+        - r --> recursively provide the file/dir info
+        - t --> timstamp
+        - a --> hidden files will be displayed
+
+examples:
+
+[root@ip-172-31-20-188 ~]# ls -lrt
+total 0
+-rw-r--r-- 1 root root 0 Oct  5 13:12 sekhar
+-rw-r--r-- 1 root root 0 Oct  5 13:12 httpd
+-rw-r--r-- 1 root root 0 Oct  5 13:13 we
+-rw-r--r-- 1 root root 0 Oct  5 13:13 uiop
+-rw-r--r-- 1 root root 0 Oct  5 13:13 ty
+-rw-r--r-- 1 root root 0 Oct  5 13:13 are
+[root@ip-172-31-20-188 ~]# ls -r
+we  uiop  ty  sekhar  httpd  are
+[root@ip-172-31-20-188 ~]# ls -t
+are  ty  uiop  we  httpd  sekhar
+[root@ip-172-31-20-188 ~]# ls -lrt sekhar
+-rw-r--r-- 1 root root 0 Oct  5 13:12 sekhar
+
+cat:-====  ctrl+d (save and quit from the file)
+---
+ to read a file
+ to append the data to existing file
+
+syn: cat <file>
+     cat > file  ==> to create a new file and add the data to it
+     cat >>  file ==> to append the data to a existing file
+
+examples:
+
+[root@ip-172-31-20-188 ~]# cat >> sekhar
+Helo how are you....!
+
+We afre sgtartig with a new batch for Devops
+ctrl+d ==> to save and quit
+
+[root@ip-172-31-20-188 ~]# cat sekhar
+Helo how are you....!
+
+We afre sgtartig with a new batch for Devops
+
+pwd: present working directory
+====
+[root@ip-172-31-20-188 ntr]# pwd
+/root/movies/telugu/ntr
+
+cd: chnage the directory from one location to another
+--
+options:
+-----
+. ==> current working location
+.. --> one step back 
+completepath ==> /root/movies/telugu or /root/movies
+~ ==> home directroy for the current user
+
+example:
+
+[root@ip-172-31-20-188 ntr]# pwd
+/root/movies/telugu/ntr
+[root@ip-172-31-20-188 ntr]# cd ..
+[root@ip-172-31-20-188 telugu]# pwd
+/root/movies/telugu
+[root@ip-172-31-20-188 telugu]# cd ..
+[root@ip-172-31-20-188 movies]# pwd
+/root/movies
+[root@ip-172-31-20-188 movies]# ls
+telugu
+[root@ip-172-31-20-188 movies]# cd telugu/ntr/
+[root@ip-172-31-20-188 ntr]# pwd
+/root/movies/telugu/ntr
+
+
+complete path:
+
+[root@ip-172-31-20-188 ntr]# pwd
+/root/movies/telugu/ntr
+[root@ip-172-31-20-188 ntr]# cd /root/movies/
+[root@ip-172-31-20-188 movies]# pwd
+/root/movies
+[root@ip-172-31-20-188 movies]#
+
+
+
+date: display the current date
+cal: calculator
+ 
+
+
+
+
+
+
+
+
+
