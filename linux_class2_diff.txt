@@ -1,0 +1,186 @@
+File: vi , cp , mv , rm , rmdir , mkdir , Linux directory structure
+====
+
+Linux directory structure:
+=========================
+
+/  ==> main diretory or root directory
+
+bin --> /bin -->having normal user related commands
+boot --> /boot --> bootable files 
+dev --> /dev --> devices info. 
+etc --? /etc --> default configuration files for the any softwares example: java, mysql etc,. 
+home --> /home --> default directory for the users
+lib --> /lib  -> library fils 
+lib64  --> /lib64 --> 64 bit library files will be exists
+media  --> /media --> video or images kind of info will be placed by default
+mnt   --> /mnt --> mount point information will be available over here
+opt  --> /opt --> third party softwares will be placed here
+proc --> /proc --> process IDs will be store here
+root --> /root --> root user home directory 
+sbin --> /sbin --> root user and normal user related commands will be exists 
+tmp  --> /tmp --> the data has to be trashed and every one can able to access the data from tmp directory or universal directory.
+usr  --> /usr --> user related documents will store here
+var  --> /var --> default logs path for the os level softwares and 3rd party.
+
+=====================================================================
+
+vi editor:
+=========
+
+there 3 modes
+
+1. command mode  --> 
+
+H Upper left corner (home)
+M Middle line
+L Lower left corner
+h Back a character
+j Down a line
+k Up a line
+^ Beginning of line
+$ End of line
+l Forward a character
+w One word forward
+b Back one word
+dd or ndd Delete n lines to general buffer
+dw Delete word to general buffer
+dnw Delete n words
+Recovering deletions
+p Put general buffer after cursor
+P Put general buffer before cursor
+Undo commands
+u Undo last change
+U Undo all changes on line
+Rearrangement commands
+yy or Y Yank (copy) line to general buffer
+“z6yy Yank 6 lines to buffer z
+yw Yank word to general buffer
+
+
+2. insert mode  --> AaIiOo
+3. execution mode  --> :wq!  --> w(save) q(quit) !(forcefully)
+
+syn:  vi <filename>
+example: vi testing  
+
+======== cp --> copy  a file from one location to another 
+         mv --> to rename a file 
+
+cp:
+
+syn: cp <options> <sourcefile/dir> <destination path>
+example:
+
+options: -ivrf (i interactive, v --> verbosity , r --> recursively , f--> fullformat)
+
+[root@ip-172-31-20-188 opt]# ls
+aws  rh  testing
+[root@ip-172-31-20-188 opt]# cp testing /tmp/
+[root@ip-172-31-20-188 opt]# ls -lrt /tmp/testing 
+-rw-r--r-- 1 root root 744 Oct  8 14:19 /tmp/testing
+[root@ip-172-31-20-188 opt]# touch empty
+[root@ip-172-31-20-188 opt]# cp -i empty /tmp/
+[root@ip-172-31-20-188 opt]# cp -iv empty /tmp/
+cp: overwrite ‘/tmp/empty’? y
+‘empty’ -> ‘/tmp/empty’
+[root@ip-172-31-20-188 opt]# mkdir te
+[root@ip-172-31-20-188 opt]# cp te /tmp/
+cp: omitting directory ‘te’
+[root@ip-172-31-20-188 opt]# cp -r te /tmp/
+
+[root@ip-172-31-20-188 /]# cp /opt/testing /root/
+[root@ip-172-31-20-188 /]# cd /root/
+[root@ip-172-31-20-188 ~]# ls
+are  httpd  movies  sekhar  testing  ty  uiop  we
+[root@ip-172-31-20-188 ~]# 
+
+==> mv
+
+it can be done by 2 operations
+
+1. cut and paste the file
+2. rename a file/dir
+
+syn: mv <-ivrf> <source file/dir> <desti. file/dir>
+
+example:
+--------
+[root@ip-172-31-20-188 ~]# ls
+are  httpd  movies  sekhar  testing  ty  uiop  we
+[root@ip-172-31-20-188 ~]# mv testing testing123
+[root@ip-172-31-20-188 ~]# ls
+are  httpd  movies  sekhar  testing123  ty  uiop  we
+[root@ip-172-31-20-188 ~]# mv testing123 /opt/
+[root@ip-172-31-20-188 ~]# cd /opt/
+[root@ip-172-31-20-188 opt]# ls
+aws  empty  rh  te  testing  testing123
+[root@ip-172-31-20-188 ~]# mv movies movies123
+[root@ip-172-31-20-188 ~]# ls
+are  httpd  movies123  sekhar  ty  uiop  we
+[root@ip-172-31-20-188 ~]# mv movies123 /opt/
+[root@ip-172-31-20-188 ~]# ls
+are  httpd  sekhar  ty  uiop  we
+
+
+===>mkdir --> to create a directory or sub directories
+
+syn: mkdir <options> <direname>
+example:
+
+[root@ip-172-31-20-188 opt]# mkdir entertainment
+[root@ip-172-31-20-188 opt]# ls
+aws  empty  entertainment  movies123  rh  te  testing  testing123
+[root@ip-172-31-20-188 opt]# mkdir -p entertainment/Telugu
+
+[root@ip-172-31-20-188 opt]# mkdir entertainment
+[root@ip-172-31-20-188 opt]# ls
+aws  empty  entertainment  movies123  rh  te  testing  testing123
+[root@ip-172-31-20-188 opt]# mkdir -p entertainment/Telugu
+
+[root@ip-172-31-20-188 opt]# mkdir -p entertainment/Telugu/song{1..10}
+[root@ip-172-31-20-188 opt]# tree entertainment/
+entertainment/
+└── Telugu
+    ├── song1
+    ├── song10
+    ├── song[1..10]
+    ├── song2
+    ├── song3
+    ├── song4
+    ├── song5
+    ├── song6
+    ├── song7
+    ├── song8
+    └── song9
+
+12 directories, 0 files
+
+=====> rm ad rmdir
+
+rm --> to remove a filedir
+rmdir ==> to remove an empty directories
+
+syn: rm -ivrf <file/dir>
+example:
+
+[root@ip-172-31-20-188 opt]# rm -iv testing
+rm: remove regular file ‘testing’? y
+removed ‘testing’
+[root@ip-172-31-20-188 opt]# rm -r testing123 
+rm: remove regular file ‘testing123’? y
+[root@ip-172-31-20-188 opt]# 
+[root@ip-172-31-20-188 opt]# 
+[root@ip-172-31-20-188 opt]# 
+[root@ip-172-31-20-188 opt]# rm movies123
+rm: cannot remove ‘movies123’: Is a directory
+[root@ip-172-31-20-188 opt]# rm -r movies123/
+rm: descend into directory ‘movies123/’? y
+rm: descend into directory ‘movies123/telugu’? y
+rm: remove directory ‘movies123/telugu/ntr’? y
+rm: remove directory ‘movies123/telugu’? y
+rm: remove directory ‘movies123/’? y
+
+[root@ip-172-31-20-188 opt]# rmdir tesrt
+[root@ip-172-31-20-188 opt]# 
+
